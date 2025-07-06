@@ -10,7 +10,10 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y maven-local-openjdk21
+# dnf5 install -y maven-local-openjdk21
+mkdir -p /nix && \
+	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix -o /nix/determinate-nix-installer.sh && \
+	chmod a+rx /nix/determinate-nix-installer.sh
 
 # Use a COPR Example:
 #
@@ -24,20 +27,4 @@ dnf5 install -y maven-local-openjdk21
 # systemctl enable podman.socket
 #
 
-cat >/etc/myconfig.conf <<EOL
-line 1
-line 2
-line 3
-line 4 line
-...
-EOL
-
-mkdir -p /nix
-cat >/nix/myconfig.conf <<EOL
-line 1
-line 2
-line 3
-line 4 line
-...
-EOL
 
