@@ -22,3 +22,22 @@ dnf5 install -y maven-local-openjdk21
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
+#
+
+cat >/etc/myconfig.conf <<EOL
+line 1
+line 2
+line 3
+line 4 line
+...
+EOL
+
+mkdir -p /nix
+cat >/nix/myconfig.conf <<EOL
+line 1
+line 2
+line 3
+line 4 line
+...
+EOL
+
